@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="client.js" defer></script>
+  </head>
+
+  <body>
+    <h3>Bug description</h3>
+    <p>Firefox will autofill the form, and fail to ask the user for a CVC. As far as the user can tell, all form elements have been filled, but on submit they'll receive an invalid CVC error.</p>
+    <h3>Necessary conditions to reproduce the bug</h3>
+    <ul>
+      <li>Firefox (tested 102 ESR and 111 stable)</li>
+      <li>hidePostalCode: true</li>
+      <li>fontSize must be large enough and form width narrow enough</li>
+      <li>Credit card must be saved for autofill</li>
+    </ul>
+    <form>
+      <div id="card-element"><!--Stripe.js injects the Card Element--></div>
+      <button>Pay now</button>
+    </form>
+  </body>
+</html>
